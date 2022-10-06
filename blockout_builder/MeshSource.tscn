@@ -1,0 +1,119 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://blockout_builder/prototyping_walls.gltf" type="PackedScene" id=1]
+[ext_resource path="res://horror_game_prototyping/tileable-grid-b.png" type="Texture" id=2]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+octaves = 2
+period = 8.0
+lacunarity = 0.1
+
+[sub_resource type="NoiseTexture" id=2]
+width = 256
+height = 256
+seamless = true
+as_normalmap = true
+bump_strength = 0.7
+noise = SubResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_world_triplanar = true
+albedo_color = Color( 1, 0, 0, 1 )
+albedo_texture = ExtResource( 2 )
+metallic = 0.03
+metallic_specular = 1.0
+roughness = 0.1
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = SubResource( 2 )
+uv1_triplanar = true
+
+[sub_resource type="ConcavePolygonShape" id=8]
+data = PoolVector3Array( 1, 2, -0.2, -1, 2, 0.2, -1, 2, -0.2, 1, 2, -0.2, 1, 2, 0.2, -1, 2, 0.2, 1, 0, 0.2, -1, 2, 0.2, 1, 2, 0.2, 1, 0, 0.2, -1, 0, 0.2, -1, 2, 0.2, -1, 0, 0.2, -1, 2, -0.2, -1, 2, 0.2, -1, 0, 0.2, -1, 0, -0.2, -1, 2, -0.2, -1, 0, -0.2, 1, 0, 0.2, 1, 0, -0.2, -1, 0, -0.2, -1, 0, 0.2, 1, 0, 0.2, 1, 0, -0.2, 1, 2, 0.2, 1, 2, -0.2, 1, 0, -0.2, 1, 0, 0.2, 1, 2, 0.2, -1, 0, -0.2, 1, 2, -0.2, -1, 2, -0.2, -1, 0, -0.2, 1, 0, -0.2, 1, 2, -0.2 )
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_world_triplanar = true
+albedo_color = Color( 0, 0.0156863, 1, 1 )
+albedo_texture = ExtResource( 2 )
+metallic = 0.03
+metallic_specular = 1.0
+roughness = 0.1
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = SubResource( 2 )
+uv1_triplanar = true
+
+[sub_resource type="ConcavePolygonShape" id=9]
+data = PoolVector3Array( 1, 2, -0.2, -1, 2, 0.2, -1, 2, -0.2, 1, 2, -0.2, 1, 2, 0.2, -1, 2, 0.2, 1, 0, 0.2, -1, 2, 0.2, 1, 2, 0.2, 1, 0, 0.2, -1, 0, 0.2, -1, 2, 0.2, -1, 0, 0.2, -1, 2, -0.2, -1, 2, 0.2, -1, 0, 0.2, -1, 0, -0.2, -1, 2, -0.2, -1, 0, -0.2, 1, 0, 0.2, 1, 0, -0.2, -1, 0, -0.2, -1, 0, 0.2, 1, 0, 0.2, 1, 0, -0.2, 1, 2, 0.2, 1, 2, -0.2, 1, 0, -0.2, 1, 0, 0.2, 1, 2, 0.2, -1, 0, -0.2, 1, 2, -0.2, -1, 2, -0.2, -1, 0, -0.2, 1, 0, -0.2, 1, 2, -0.2, 0.2, 2, 1, -0.2, 2, -1, 0.2, 2, -1, 0.2, 2, 1, -0.2, 2, 1, -0.2, 2, -1, -0.2, 0, 1, -0.2, 2, -1, -0.2, 2, 1, -0.2, 0, 1, -0.2, 0, -1, -0.2, 2, -1, -0.2, 0, -1, 0.2, 2, -1, -0.2, 2, -1, -0.2, 0, -1, 0.2, 0, -1, 0.2, 2, -1, 0.2, 0, -1, -0.2, 0, 1, 0.2, 0, 1, 0.2, 0, -1, -0.2, 0, -1, -0.2, 0, 1, 0.2, 0, 1, -0.2, 2, 1, 0.2, 2, 1, 0.2, 0, 1, -0.2, 0, 1, -0.2, 2, 1, 0.2, 0, -1, 0.2, 2, 1, 0.2, 2, -1, 0.2, 0, -1, 0.2, 0, 1, 0.2, 2, 1 )
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_world_triplanar = true
+albedo_color = Color( 0.968627, 1, 0, 1 )
+albedo_texture = ExtResource( 2 )
+metallic = 0.03
+metallic_specular = 1.0
+roughness = 0.1
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = SubResource( 2 )
+uv1_triplanar = true
+
+[sub_resource type="ConcavePolygonShape" id=10]
+data = PoolVector3Array( 1, 2, -0.2, -0.2, 2, 0.2, -0.2, 2, -0.2, 1, 2, -0.2, 1, 2, 0.2, -0.2, 2, 0.2, 1, 0, 0.2, -0.2, 2, 0.2, 1, 2, 0.2, 1, 0, 0.2, -0.2, 0, 0.2, -0.2, 2, 0.2, -0.2, 0, 0.2, -0.2, 2, -0.2, -0.2, 2, 0.2, -0.2, 0, 0.2, -0.2, 0, -0.2, -0.2, 2, -0.2, -0.2, 0, -0.2, 1, 0, 0.2, 1, 0, -0.2, -0.2, 0, -0.2, -0.2, 0, 0.2, 1, 0, 0.2, 1, 0, -0.2, 1, 2, 0.2, 1, 2, -0.2, 1, 0, -0.2, 1, 0, 0.2, 1, 2, 0.2, -0.2, 0, -0.2, 1, 2, -0.2, -0.2, 2, -0.2, -0.2, 0, -0.2, 1, 0, -0.2, 1, 2, -0.2, 0.2, 2, 1, -0.2, 2, -0.2, 0.2, 2, -0.2, 0.2, 2, 1, -0.2, 2, 1, -0.2, 2, -0.2, -0.2, 0, 1, -0.2, 2, -0.2, -0.2, 2, 1, -0.2, 0, 1, -0.2, 0, -0.2, -0.2, 2, -0.2, -0.2, 0, -0.2, 0.2, 2, -0.2, -0.2, 2, -0.2, -0.2, 0, -0.2, 0.2, 0, -0.2, 0.2, 2, -0.2, 0.2, 0, -0.2, -0.2, 0, 1, 0.2, 0, 1, 0.2, 0, -0.2, -0.2, 0, -0.2, -0.2, 0, 1, 0.2, 0, 1, -0.2, 2, 1, 0.2, 2, 1, 0.2, 0, 1, -0.2, 0, 1, -0.2, 2, 1, 0.2, 0, -0.2, 0.2, 2, 1, 0.2, 2, -0.2, 0.2, 0, -0.2, 0.2, 0, 1, 0.2, 2, 1 )
+
+[sub_resource type="SpatialMaterial" id=7]
+flags_world_triplanar = true
+albedo_color = Color( 0, 1, 0.0156863, 1 )
+albedo_texture = ExtResource( 2 )
+metallic = 0.03
+metallic_specular = 1.0
+roughness = 0.1
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = SubResource( 2 )
+uv1_triplanar = true
+
+[sub_resource type="ConcavePolygonShape" id=11]
+data = PoolVector3Array( 1, 2, -0.2, -1, 2, 0.2, -1, 2, -0.2, 1, 2, -0.2, 1, 2, 0.2, -1, 2, 0.2, 1, 0, 0.2, -1, 2, 0.2, 1, 2, 0.2, 1, 0, 0.2, -1, 0, 0.2, -1, 2, 0.2, -1, 0, 0.2, -1, 2, -0.2, -1, 2, 0.2, -1, 0, 0.2, -1, 0, -0.2, -1, 2, -0.2, -1, 0, -0.2, 1, 0, 0.2, 1, 0, -0.2, -1, 0, -0.2, -1, 0, 0.2, 1, 0, 0.2, 1, 0, -0.2, 1, 2, 0.2, 1, 2, -0.2, 1, 0, -0.2, 1, 0, 0.2, 1, 2, 0.2, -1, 0, -0.2, 1, 2, -0.2, -1, 2, -0.2, -1, 0, -0.2, 1, 0, -0.2, 1, 2, -0.2, 0.2, 2, 1, -0.2, 2, -0.2, 0.2, 2, -0.2, 0.2, 2, 1, -0.2, 2, 1, -0.2, 2, -0.2, -0.2, 0, 1, -0.2, 2, -0.2, -0.2, 2, 1, -0.2, 0, 1, -0.2, 0, -0.2, -0.2, 2, -0.2, -0.2, 0, -0.2, 0.2, 2, -0.2, -0.2, 2, -0.2, -0.2, 0, -0.2, 0.2, 0, -0.2, 0.2, 2, -0.2, 0.2, 0, -0.2, -0.2, 0, 1, 0.2, 0, 1, 0.2, 0, -0.2, -0.2, 0, -0.2, -0.2, 0, 1, 0.2, 0, 1, -0.2, 2, 1, 0.2, 2, 1, 0.2, 0, 1, -0.2, 0, 1, -0.2, 2, 1, 0.2, 0, -0.2, 0.2, 2, 1, 0.2, 2, -0.2, 0.2, 0, -0.2, 0.2, 0, 1, 0.2, 2, 1 )
+
+[node name="MeshSource" instance=ExtResource( 1 )]
+__meta__ = {
+"_edit_lock_": true,
+"_editor_description_": "MeshSource expects to store direct, inherited references from a .gltf scene, where the meshes can be updated by editing that .gltf file externally (in Blender, for instance.)"
+}
+
+[node name="WallSingle" parent="." index="0"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+material/0 = SubResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="WallSingle" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="WallSingle/StaticBody" index="0"]
+shape = SubResource( 8 )
+
+[node name="WallFourWay" parent="." index="1"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+material/0 = SubResource( 5 )
+
+[node name="StaticBody" type="StaticBody" parent="WallFourWay" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="WallFourWay/StaticBody" index="0"]
+shape = SubResource( 9 )
+
+[node name="WallCorner" parent="." index="2"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+material/0 = SubResource( 6 )
+
+[node name="StaticBody" type="StaticBody" parent="WallCorner" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="WallCorner/StaticBody" index="0"]
+shape = SubResource( 10 )
+
+[node name="WallT" parent="." index="3"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+material/0 = SubResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="WallT" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="WallT/StaticBody" index="0"]
+shape = SubResource( 11 )

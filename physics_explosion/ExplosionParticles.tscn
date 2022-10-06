@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://horror_game_prototyping/Forest Ground/forrest_ground_03_disp_1k.jpg" type="Texture" id=1]
+
+[sub_resource type="Curve" id=9]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, 200 ), 0.0, 0.0, 0, 0, Vector2( 0.173203, -200 ), -3189.82, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=10]
+curve = SubResource( 9 )
+
+[sub_resource type="Curve" id=7]
+max_value = 2.0
+_data = [ Vector2( 0, 0.920455 ), 0.0, 0.0, 0, 0, Vector2( 0.323529, 0 ), -10.3586, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3( 0, 10, 0 )
+spread = 180.0
+gravity = Vector3( 0, 10, 0 )
+initial_velocity = 5.0
+linear_accel = 9.7
+linear_accel_curve = SubResource( 10 )
+radial_accel = 100.0
+radial_accel_random = 1.0
+tangential_accel = -100.0
+scale_random = 1.0
+scale_curve = SubResource( 8 )
+
+[sub_resource type="SpatialMaterial" id=11]
+flags_transparent = true
+params_diffuse_mode = 4
+params_specular_mode = 3
+params_blend_mode = 1
+albedo_color = Color( 1, 0.541176, 0, 1 )
+emission_enabled = true
+emission = Color( 1, 0, 0, 1 )
+emission_energy = 9.05
+emission_operator = 0
+emission_on_uv2 = false
+emission_texture = ExtResource( 1 )
+
+[sub_resource type="SphereMesh" id=6]
+material = SubResource( 11 )
+
+[node name="ExplosionParticles" type="Particles"]
+emitting = false
+amount = 64
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+process_material = SubResource( 5 )
+draw_pass_1 = SubResource( 6 )

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://physics_explosion/physics_explosion.gd" type="Script" id=1]
+
+[sub_resource type="SphereShape" id=12]
+radius = 5.0
+
+[node name="ExplosionArea" type="Area"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 12 )

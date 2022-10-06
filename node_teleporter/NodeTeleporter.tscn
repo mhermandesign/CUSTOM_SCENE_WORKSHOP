@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://node_teleporter/node_teleporter.gd" type="Script" id=1]
+
+[sub_resource type="CylinderShape" id=1]
+height = 6.0
+radius = 2.0
+
+[sub_resource type="Gradient" id=6]
+colors = PoolColorArray( 0, 0.976471, 1, 0.152941, 0.894118, 1, 0, 0 )
+
+[sub_resource type="GradientTexture2D" id=7]
+gradient = SubResource( 6 )
+fill = 1
+fill_from = Vector2( 0.495833, 0.495833 )
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_transparent = true
+params_cull_mode = 2
+albedo_texture = SubResource( 7 )
+emission_enabled = true
+emission = Color( 0, 0, 0, 1 )
+emission_energy = 5.0
+emission_operator = 0
+emission_on_uv2 = false
+emission_texture = SubResource( 7 )
+
+[sub_resource type="CylinderMesh" id=5]
+material = SubResource( 4 )
+top_radius = 2.0
+bottom_radius = 2.0
+height = 6.0
+
+[node name="NodeTeleporter" type="Node"]
+script = ExtResource( 1 )
+teleport_positions = PoolVector3Array( 25, 5, 0, 15, 3, 8, 32, 4, 9 )
+
+[node name="Area1" type="Area" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Area1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Area1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+mesh = SubResource( 5 )
+
+[connection signal="body_entered" from="Area1" to="." method="_on_Area1_body_entered"]

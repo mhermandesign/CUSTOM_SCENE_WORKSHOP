@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://horror_game_prototyping/grid_spatialmaterial.tres" type="Material" id=1]
+[ext_resource path="res://fps_controller/FPSController.tscn" type="PackedScene" id=3]
+[ext_resource path="res://boom_barrel/BoomBarrel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://hud/HUD.tscn" type="PackedScene" id=5]
+
+[sub_resource type="PlaneMesh" id=1]
+material = ExtResource( 1 )
+size = Vector2( 1000, 1000 )
+subdivide_width = 64
+subdivide_depth = 64
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 500, 1, 500 )
+
+[sub_resource type="BoxShape" id=3]
+
+[node name="Prototyping" type="Node"]
+
+[node name="GameWorld" type="Spatial" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Floor" type="StaticBody" parent="GameWorld"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="GameWorld/Floor"]
+mesh = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="GameWorld/Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+shape = SubResource( 2 )
+
+[node name="FPSController" parent="GameWorld" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 5 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="GameWorld"]
+transform = Transform( 0.866025, 0.12941, -0.482963, 0, 0.965926, 0.258819, 0.5, -0.224144, 0.836516, 0, 8, 0 )
+shadow_enabled = true
+shadow_color = Color( 0.482353, 0.458824, 0.627451, 1 )
+
+[node name="BoomBarrel" parent="GameWorld" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 4, -4 )
+
+[node name="BoomBarrel2" parent="GameWorld" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
+
+[node name="BoomBarrel3" parent="GameWorld" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 4, -4 )
+
+[node name="RigidBody" type="RigidBody" parent="GameWorld"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 7, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CSGBox" type="CSGBox" parent="GameWorld/RigidBody"]
+
+[node name="CollisionShape" type="CollisionShape" parent="GameWorld/RigidBody"]
+shape = SubResource( 3 )
+
+[node name="HUD" parent="." instance=ExtResource( 5 )]
+
+[connection signal="body_entered" from="GameWorld/BoomBarrel" to="GameWorld/BoomBarrel" method="_on_BoomBarrel_body_entered"]
+[connection signal="body_entered" from="GameWorld/BoomBarrel2" to="GameWorld/BoomBarrel2" method="_on_BoomBarrel_body_entered"]
+[connection signal="body_entered" from="GameWorld/BoomBarrel3" to="GameWorld/BoomBarrel3" method="_on_BoomBarrel_body_entered"]

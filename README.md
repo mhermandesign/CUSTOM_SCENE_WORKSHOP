@@ -3,8 +3,8 @@
 
 To save you from clicking through all of the chaff, a few of note are:
 
-- boom_barrel
-- fps_controller
-- node_teleporter
-- save_manager
-- state_machine
+- [boom_barrel](https://github.com/mhermandesign/CUSTOM_SCENE_WORKSHOP/tree/main/boom_barrel)
+- [fps_controller](https://github.com/mhermandesign/CUSTOM_SCENE_WORKSHOP/tree/main/fps_controller)
+- [node_teleporter](https://github.com/mhermandesign/CUSTOM_SCENE_WORKSHOP/tree/main/node_teleporter)
+- [save_manager](https://github.com/mhermandesign/CUSTOM_SCENE_WORKSHOP/tree/main/save_manager)
+- [state_machine](https://github.com/mhermandesign/CUSTOM_SCENE_WORKSHOP/tree/main/state_machine)

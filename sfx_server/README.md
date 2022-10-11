@@ -9,5 +9,3 @@ Currently, 'sfx_server.gd' is autoloaded as a singleton, and handles requests to
 I think I'll attempt to use groups instead of signals, and I'm going to look into the PhysicsServer class. Maybe there will be something I can use to grab collisions between specific node groups.
 
 The groups could be things like "wood", "metal", "stone", "hay", "sand", "grass", whatever. In fact, I could build a surface tagging system that can be accessed to get inputs for all kinds of interesting effects. That will need to be another module.
-
-This comment is way too long. Sorry!

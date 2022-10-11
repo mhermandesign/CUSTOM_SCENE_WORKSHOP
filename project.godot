@@ -54,6 +54,10 @@ config/name="CUSTOM_TOOLS_WORKSHOP"
 run/main_scene="res://Prototyping.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+SFXServer="*res://sfx_server/sfx_server.gd"
+
 [input]
 
 toggle_cursor_capture={

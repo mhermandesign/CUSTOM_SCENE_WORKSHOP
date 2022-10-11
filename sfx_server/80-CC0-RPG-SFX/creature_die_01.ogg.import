@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/creature_die_01.ogg-aad7363dd38f30d010a0cc021a220219.oggstr"
+
+[deps]
+
+source_file="res://sfx_server/80-CC0-RPG-SFX/creature_die_01.ogg"
+dest_files=[ "res://.import/creature_die_01.ogg-aad7363dd38f30d010a0cc021a220219.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

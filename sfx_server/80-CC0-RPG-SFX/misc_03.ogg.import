@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/misc_03.ogg-84ca7cc1d6c47c5790d17848c2d54b85.oggstr"
+
+[deps]
+
+source_file="res://sfx_server/80-CC0-RPG-SFX/misc_03.ogg"
+dest_files=[ "res://.import/misc_03.ogg-84ca7cc1d6c47c5790d17848c2d54b85.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

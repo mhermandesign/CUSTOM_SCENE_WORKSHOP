@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/creature_roar_03.ogg-ba95f984c48f327c9493f9cf279f125a.oggstr"
+
+[deps]
+
+source_file="res://sfx_server/80-CC0-RPG-SFX/creature_roar_03.ogg"
+dest_files=[ "res://.import/creature_roar_03.ogg-ba95f984c48f327c9493f9cf279f125a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

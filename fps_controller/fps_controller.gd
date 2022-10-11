@@ -52,7 +52,7 @@ func walk() -> void:
 	
 	move_and_slide(Vector3(
 		transform.basis.x * Input.get_axis("move_left", "move_right") +	transform.basis.z * Input.get_axis("move_forward", "move_backward")
-	) * WALK_SPEED, Vector3.UP, true, 4, 0.7853, false)
+	) * WALK_SPEED, Vector3.UP, true, 4, 0.7853, true)
 
 
 func apply_gravity() -> void:

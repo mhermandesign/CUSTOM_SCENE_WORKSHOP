@@ -28,6 +28,7 @@ __meta__ = {
 
 [node name="FirstPersonCamera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+doppler_tracking = 2
 current = true
 near = 0.01
 far = 3000.0

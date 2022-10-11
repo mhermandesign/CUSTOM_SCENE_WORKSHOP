@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://debug_monitor/debug_monitor.gd" type="Script" id=1]
+
+[node name="DebugMonitor" type="VBoxContainer"]
+margin_left = 24.0
+margin_top = 72.0
+margin_right = 1000.0
+margin_bottom = 528.0
+script = ExtResource( 1 )
+
+[node name="FPSLabel" type="Label" parent="."]
+margin_right = 976.0
+margin_bottom = 14.0
+text = "FPS: "
+
+[node name="TimeProcessLabel" type="Label" parent="."]
+margin_top = 18.0
+margin_right = 976.0
+margin_bottom = 32.0
+text = "TimeProcess: "
+
+[node name="TimePhysicsLabel" type="Label" parent="."]
+margin_top = 36.0
+margin_right = 976.0
+margin_bottom = 50.0
+text = "TimePhysics: "
+
+[node name="RenderObjectsInFrameLabel" type="Label" parent="."]
+margin_top = 54.0
+margin_right = 976.0
+margin_bottom = 68.0
+text = "Render Objects in Frame: "
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

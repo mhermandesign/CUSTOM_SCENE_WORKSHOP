@@ -1,4 +1,4 @@
-#SFX Server
+# SFX Server
 
 I dislike the idea of having an audio source be a child of a game object. My issue with it is that sound in the real world is a globalized pressure wave, occurring when two objects collide or when something is vibrated quickly enough. Percussion and resonance. When something makes a noise, that noise is propagated throughout the environment, interacting with other things. Especially if it's a percussive noise caused by two colliding bodies.
 

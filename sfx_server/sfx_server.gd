@@ -13,9 +13,8 @@ extends Node
 # NOTE 1: I'm thinking it might be best to use groups instead of audioclips local
 # to the colliding bodies.
 
-signal spawn_sfx(sfx_group_tags, position)
 
-func _on_spawn_sfx(sfx_group_tags: Array, position: Vector3):
+func spawn_sfx(sfx_group_tags: Array, position: Vector3):
 	print("spawning sfx")
 	
 	

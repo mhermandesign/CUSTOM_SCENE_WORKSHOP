@@ -1,16 +1,23 @@
 extends KinematicBody
 
 export var WALK_SPEED := 8
+export var SPRINT_SPEED := 16
 export var MOUSE_SENSITIVITY := 0.04
 export var GRAVITY := 9.8
-export var ATTACK_DAMAGE := 1
+export var JUMP_HEIGHT := 128
 
 onready var FirstPersonCamera: Camera = get_node("FirstPersonCamera")
 onready var InteractionRayCast: RayCast = get_node("FirstPersonCamera/InteractionRayCast")
 onready var Avatar = get_node("Avatar")
+onready var GroundedArea: Area = get_node("GroundedArea")
+
+var is_grounded: bool
 
 var interaction_collider
 
+var linear_velocity: Vector3 # Set each physics frame with the move_and_*() methods
+
+var time_spent_falling: float
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -23,7 +30,7 @@ func _input(event):
 	if Input.is_action_just_released("toggle_cursor_capture"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	aim(event)
+	aim(event as InputEventMouseMotion)
 
 
 func _process(delta):
@@ -31,32 +38,49 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	walk()
-	apply_gravity()
+	is_grounded = GroundedArea.get_overlapping_bodies().size() > 1
+	walk(Input.is_action_pressed("sprint"))
+	apply_gravity(delta)
 	process_interaction_logic()
+	jump(Input.is_action_just_pressed("jump"))
 
 
-func aim(event: InputEvent) -> void:
-	var mouse_motion := event as InputEventMouseMotion # := is an INFERRENCE rather than an ASSERTION
-	if mouse_motion:
-		rotation_degrees.y -= mouse_motion.relative.x * MOUSE_SENSITIVITY
+func aim(mouse_motion_event: InputEventMouseMotion) -> void:
+	if not mouse_motion_event:
+		pass
+	else:
+		rotation_degrees.y -= mouse_motion_event.relative.x * MOUSE_SENSITIVITY
 		
 		var current_tilt: float = FirstPersonCamera.rotation_degrees.x
-		current_tilt -= mouse_motion.relative.y * MOUSE_SENSITIVITY
+		current_tilt -= mouse_motion_event.relative.y * MOUSE_SENSITIVITY
 		
 		FirstPersonCamera.rotation_degrees.x = clamp(current_tilt, -75, 75)
 
-
-func walk() -> void:
+func walk(do_sprint: bool) -> void:
 	var movement_vector: Vector3
 	
-	move_and_slide(Vector3(
-		transform.basis.x * Input.get_axis("move_left", "move_right") +	transform.basis.z * Input.get_axis("move_forward", "move_backward")
-	) * WALK_SPEED, Vector3.UP, true, 4, 0.7853, true)
+	var movement_speed = SPRINT_SPEED if do_sprint else WALK_SPEED
+	
+	movement_vector = Vector3(transform.basis.x * Input.get_axis("move_left", "move_right") +	transform.basis.z * Input.get_axis("move_forward", "move_backward")).normalized()
+	
+	
+	linear_velocity = move_and_slide(movement_vector * movement_speed, Vector3.UP, true, 4, 0.89, false)
+	
+	yield(get_tree().create_timer(1.0), "timeout")
 
 
-func apply_gravity() -> void:
-	move_and_slide(Vector3.DOWN * GRAVITY, Vector3.UP, true, 4, 0.7853, false)
+func apply_gravity(delta: float) -> void:
+	if is_grounded:
+		time_spent_falling = 0.0
+		pass
+	else:
+		linear_velocity = move_and_slide(Vector3.DOWN * GRAVITY * (time_spent_falling * 2), Vector3.UP, true, 4, 0.7853, false)
+		time_spent_falling += delta
+
+
+func jump(jump_input: bool):
+	if jump_input:
+		linear_velocity += move_and_slide(Vector3.UP * JUMP_HEIGHT, Vector3.UP)
 
 
 func process_interaction_raycast():

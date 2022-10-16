@@ -17,6 +17,7 @@ radius = 0.4
 
 [node name="FPSController" type="KinematicBody"]
 input_ray_pickable = false
+collision/safe_margin = 0.02
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true

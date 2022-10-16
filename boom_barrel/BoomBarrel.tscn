@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://boom_barrel/boom_barrel.gd" type="Script" id=1]
 [ext_resource path="res://boom_barrel/587179__derplayer__explosion-double.wav" type="AudioStream" id=3]
@@ -21,15 +21,13 @@ surfaces/0 = {
 "vertex_count": 621
 }
 
-[sub_resource type="SphereShape" id=12]
-radius = 10.0
-
-[sub_resource type="SphereShape" id=16]
-radius = 0.3
+[sub_resource type="CylinderShape" id=16]
+height = 1.75713
+radius = 0.542201
 
 [node name="BoomBarrel" type="RigidBody" groups=["damageable"]]
 mass = 21.7
-contacts_reported = 2
+contacts_reported = 1
 contact_monitor = true
 can_sleep = false
 linear_damp = 1.0
@@ -46,22 +44,10 @@ mesh = SubResource( 14 )
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 3 )
 
-[node name="ExplosionArea" type="Area" parent="."]
-monitorable = false
+[node name="Area" type="Area" parent="."]
 
-[node name="CollisionShape" type="CollisionShape" parent="ExplosionArea"]
-shape = SubResource( 12 )
-
-[node name="Weight" type="RigidBody" parent="."]
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape" type="CollisionShape" parent="Weight"]
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 16 )
 
-[node name="CSGCylinder" type="CSGCylinder" parent="."]
-use_collision = true
-invert_faces = true
-radius = 0.3
-height = 1.6
+[connection signal="body_entered" from="." to="." method="_on_BoomBarrel_body_entered"]
+[connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]

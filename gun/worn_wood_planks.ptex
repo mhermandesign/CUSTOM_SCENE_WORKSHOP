@@ -1,0 +1,166 @@
+{
+	"connections": [
+		{
+			"from": "noise_anisotropic",
+			"from_port": 0,
+			"to": "bricks2",
+			"to_port": 0
+		},
+		{
+			"from": "bricks2",
+			"from_port": 0,
+			"to": "colorize",
+			"to_port": 0
+		},
+		{
+			"from": "bricks2",
+			"from_port": 0,
+			"to": "normal_map2",
+			"to_port": 0
+		},
+		{
+			"from": "colorize",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 0
+		},
+		{
+			"from": "normal_map2",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 4
+		}
+	],
+	"label": "Graph",
+	"longdesc": "",
+	"name": "@@288",
+	"node_position": {
+		"x": 0,
+		"y": 0
+	},
+	"nodes": [
+		{
+			"export_paths": {
+
+			},
+			"name": "Material",
+			"node_position": {
+				"x": 233,
+				"y": 23
+			},
+			"parameters": {
+				"albedo_color": {
+					"a": 1,
+					"b": 1,
+					"g": 1,
+					"r": 1,
+					"type": "Color"
+				},
+				"ao": 1,
+				"depth_scale": 0.5,
+				"emission_energy": 1,
+				"flags_transparent": true,
+				"metallic": 0,
+				"normal": 1,
+				"roughness": 1,
+				"size": 11,
+				"sss": 0
+			},
+			"seed": 0,
+			"seed_locked": false,
+			"type": "material_tesselated"
+		},
+		{
+			"name": "noise_anisotropic",
+			"node_position": {
+				"x": -759,
+				"y": 69
+			},
+			"parameters": {
+				"interpolation": 0,
+				"scale_x": 16,
+				"scale_y": 59,
+				"smoothness": 0.63
+			},
+			"seed": 0,
+			"seed_locked": false,
+			"type": "noise_anisotropic"
+		},
+		{
+			"name": "colorize",
+			"node_position": {
+				"x": -74,
+				"y": 29
+			},
+			"parameters": {
+				"gradient": {
+					"interpolation": 1,
+					"points": [
+						{
+							"a": 1,
+							"b": 0.213089,
+							"g": 0.257528,
+							"pos": 0,
+							"r": 0.371094
+						},
+						{
+							"a": 1,
+							"b": 0.438965,
+							"g": 0.799053,
+							"pos": 1,
+							"r": 0.96875
+						}
+					],
+					"type": "Gradient"
+				}
+			},
+			"seed": 0,
+			"seed_locked": false,
+			"type": "colorize"
+		},
+		{
+			"name": "bricks2",
+			"node_position": {
+				"x": -379,
+				"y": -59
+			},
+			"parameters": {
+				"bevel": 0.06,
+				"columns": 1,
+				"corner": 0,
+				"mortar": 0.09,
+				"pattern": 0,
+				"repeat": 2,
+				"round": 0,
+				"row_offset": 0.62,
+				"rows": 6
+			},
+			"seed": 0,
+			"seed_locked": false,
+			"type": "bricks2"
+		},
+		{
+			"name": "normal_map2",
+			"node_position": {
+				"x": -209,
+				"y": 258
+			},
+			"parameters": {
+				"buffer": 1,
+				"param2": 1,
+				"size": 10,
+				"strength": 3
+			},
+			"seed": 0,
+			"seed_locked": false,
+			"type": "normal_map2"
+		}
+	],
+	"parameters": {
+
+	},
+	"seed": 0,
+	"seed_locked": false,
+	"shortdesc": "",
+	"type": "graph"
+}

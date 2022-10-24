@@ -29,9 +29,6 @@ export (NodePath) onready var SubmitButton = get_node(SubmitButton)
 # ENGINE CALLBACKS
 # ======================= #
 
-func _ready():
-	InputField.grab_focus()
-
 
 func _unhandled_key_input(event):
 	var keypress = event as InputEventKey

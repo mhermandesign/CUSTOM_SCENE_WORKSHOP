@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/item_coins_04.ogg-dae43d4f9bebad8b1b29f813799630f1.oggstr"
+
+[deps]
+
+source_file="res://tools/sfx_server/80-CC0-RPG-SFX/item_coins_04.ogg"
+dest_files=[ "res://.import/item_coins_04.ogg-dae43d4f9bebad8b1b29f813799630f1.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -12,27 +12,27 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "CharacterDialogue",
 "language": "GDScript",
-"path": "res://dialogue_system/dialogue/CharacterDialogue.gd"
+"path": "res://tools/dialogue_system/dialogue/CharacterDialogue.gd"
 }, {
 "base": "Node",
 "class": "Inventory",
 "language": "GDScript",
-"path": "res://inventory/Inventory.gd"
+"path": "res://tools/inventory/Inventory.gd"
 }, {
 "base": "Node",
 "class": "Item",
 "language": "GDScript",
-"path": "res://inventory/Item.gd"
+"path": "res://tools/inventory/Item.gd"
 }, {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
-"path": "res://state_machine/State.gd"
+"path": "res://tools/state_machine/State.gd"
 }, {
 "base": "Node",
 "class": "StateMachine",
 "language": "GDScript",
-"path": "res://state_machine/StateMachine.gd"
+"path": "res://tools/state_machine/StateMachine.gd"
 } ]
 _global_script_class_icons={
 "CharacterDialogue": "",
@@ -50,7 +50,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-SFXServer="*res://sfx_server/sfx_server.gd"
+SFXServer="*res://tools/sfx_server/sfx_server.gd"
 
 [input]
 

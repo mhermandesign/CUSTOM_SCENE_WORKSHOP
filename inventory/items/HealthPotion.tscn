@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://inventory/Item.gd" type="Script" id=1]
-
-[node name="HealthPotion" type="Node"]
-script = ExtResource( 1 )
-item_name = "health potion"
-is_stackable = true
-description = "How confident should I be that this won't kill me?"

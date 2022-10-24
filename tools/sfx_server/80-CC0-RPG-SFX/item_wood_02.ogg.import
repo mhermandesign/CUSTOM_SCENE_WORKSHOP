@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/item_wood_02.ogg-1092a589a1ef4423aecdf30964953c3f.oggstr"
+
+[deps]
+
+source_file="res://tools/sfx_server/80-CC0-RPG-SFX/item_wood_02.ogg"
+dest_files=[ "res://.import/item_wood_02.ogg-1092a589a1ef4423aecdf30964953c3f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

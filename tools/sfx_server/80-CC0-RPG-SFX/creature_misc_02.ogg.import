@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/creature_misc_02.ogg-2926ec53a27e758af86b268f19ff6b2a.oggstr"
+
+[deps]
+
+source_file="res://tools/sfx_server/80-CC0-RPG-SFX/creature_misc_02.ogg"
+dest_files=[ "res://.import/creature_misc_02.ogg-2926ec53a27e758af86b268f19ff6b2a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

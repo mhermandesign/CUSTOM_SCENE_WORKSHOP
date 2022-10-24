@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/creature_monster_03.ogg-9fb4bdd4ee5efaa668cb85c90990d3dd.oggstr"
+
+[deps]
+
+source_file="res://tools/sfx_server/80-CC0-RPG-SFX/creature_monster_03.ogg"
+dest_files=[ "res://.import/creature_monster_03.ogg-9fb4bdd4ee5efaa668cb85c90990d3dd.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,9 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=2]
-
-[ext_resource path="res://custom_shaders/color_mask_material/color_mask.gdshader" type="Shader" id=1]
-
-[resource]
-shader = ExtResource( 1 )
-shader_param/r_threshold = 0.8
-shader_param/g_threshold = 0.8
-shader_param/b_threshold = 0.8

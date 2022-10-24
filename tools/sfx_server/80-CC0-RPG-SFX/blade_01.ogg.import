@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/blade_01.ogg-c21d46cfb48bc9382fea118d563ecd1d.oggstr"
+
+[deps]
+
+source_file="res://tools/sfx_server/80-CC0-RPG-SFX/blade_01.ogg"
+dest_files=[ "res://.import/blade_01.ogg-c21d46cfb48bc9382fea118d563ecd1d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

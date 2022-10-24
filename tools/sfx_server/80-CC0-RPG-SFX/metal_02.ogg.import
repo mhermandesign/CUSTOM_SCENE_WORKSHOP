@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/metal_02.ogg-df1810c21d7560c266ead22ed9e3a481.oggstr"
+
+[deps]
+
+source_file="res://tools/sfx_server/80-CC0-RPG-SFX/metal_02.ogg"
+dest_files=[ "res://.import/metal_02.ogg-df1810c21d7560c266ead22ed9e3a481.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

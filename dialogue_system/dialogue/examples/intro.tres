@@ -1,8 +1,0 @@
-[gd_resource type="Resource" load_steps=2 format=2]
-
-[ext_resource path="res://dialogue_system/dialogue/CharacterDialogue.gd" type="Script" id=1]
-
-[resource]
-script = ExtResource( 1 )
-speaker_name = "Godobot"
-dialog_slides = PoolStringArray( "Welcome, User! I am Godobot, here to assist you.", "Only. You." )

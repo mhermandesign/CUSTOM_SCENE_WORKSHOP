@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://control/command_console/command_console.gd" type="Script" id=1]
+
+[node name="CommandConsole" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 64 )
+script = ExtResource( 1 )
+Feed = NodePath("VBoxContainer/Feed")
+InputField = NodePath("VBoxContainer/HBoxContainer/InputField")
+SubmitButton = NodePath("VBoxContainer/HBoxContainer/SubmitButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Feed" type="TextEdit" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 572.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+readonly = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 576.0
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="InputField" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+margin_right = 963.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+placeholder_text = "Enter a command"
+
+[node name="SubmitButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 967.0
+margin_right = 1024.0
+margin_bottom = 24.0
+text = "Submit"
+
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/SubmitButton" to="." method="_on_SubmitButton_button_up"]

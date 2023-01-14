@@ -1,4 +1,12 @@
+# fps_controller.gd
+
 extends KinematicBody
+
+class_name FPSController
+
+# Note: FPSController doesn't have a class_name so that it can be added from the
+# 	editor's creation menu, rather so it can be type-checked from other Nodes that
+# 	have cause to care.
 
 export var WALK_SPEED := 8
 export var SPRINT_SPEED := 16
@@ -42,7 +50,8 @@ func _physics_process(delta):
 	walk(Input.is_action_pressed("sprint"))
 	apply_gravity(delta)
 	process_interaction_logic()
-	jump(Input.is_action_just_pressed("jump"))
+	if Input.is_action_just_pressed("jump"):
+		jump(JUMP_HEIGHT)
 
 
 func aim(mouse_motion_event: InputEventMouseMotion) -> void:
@@ -78,9 +87,11 @@ func apply_gravity(delta: float) -> void:
 		time_spent_falling += delta
 
 
-func jump(jump_input: bool):
-	if jump_input:
-		linear_velocity += move_and_slide(Vector3.UP * JUMP_HEIGHT, Vector3.UP)
+func jump(jump_height: float):
+	print("before" + String(linear_velocity))
+	linear_velocity = linear_velocity.linear_interpolate(move_and_slide(linear_velocity + Vector3.UP * jump_height, Vector3.UP), 1.0)
+	print("after" + String(linear_velocity))
+	
 
 
 func process_interaction_raycast():

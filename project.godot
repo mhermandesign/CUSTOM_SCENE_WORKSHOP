@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://tools/dialogue_system/dialogue/CharacterDialogue.gd"
 }, {
+"base": "KinematicBody",
+"class": "FPSController",
+"language": "GDScript",
+"path": "res://3d/fps_controller/fps_controller.gd"
+}, {
 "base": "Node",
 "class": "Inventory",
 "language": "GDScript",
@@ -36,6 +41,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "CharacterDialogue": "",
+"FPSController": "",
 "Inventory": "",
 "Item": "",
 "State": "",
@@ -44,8 +50,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="CUSTOM_TOOLS_WORKSHOP"
-run/main_scene="res://_prototyping/Prototyping.tscn"
+config/name="_CUSTOM_TOOLS_WORKSHOP"
+run/main_scene="res://_prototyping/GameWorld.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -54,6 +60,34 @@ SFXServer="*res://tools/sfx_server/sfx_server.gd"
 
 [input]
 
+ui_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":14,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":15,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":12,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":13,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
 toggle_cursor_capture={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777240,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
@@ -94,6 +128,10 @@ sprint={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
+boost={
+"deadzone": 0.5,
+"events": [  ]
+}
 
 [input_devices]
 
@@ -107,7 +145,7 @@ common/enable_pause_aware_picking=true
 
 quality/filters/sharpen_intensity=0.1
 quality/shading/use_physical_light_attenuation=true
-quality/filters/msaa=2
+quality/filters/msaa=3
 quality/filters/use_fxaa=true
 quality/filters/use_debanding=true
 environment/default_environment="res://default_env.tres"

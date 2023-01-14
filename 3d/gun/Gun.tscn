@@ -10,7 +10,7 @@ __meta__ = {
 }
 
 [node name="Stock" type="CSGBox" parent="."]
-transform = Transform( -0.25, 0, -2.18557e-08, 0, 0.25, 0, 2.18557e-08, 0, -0.25, 3.93402e-08, 0, -1.1 )
+transform = Transform( -0.25, 0, -2.18557e-08, 0, 0.25, 0, 2.18557e-08, 0, -0.25, 3.93402e-08, -0.1, -1.1 )
 width = 0.4
 height = 0.8
 depth = 6.0
@@ -33,8 +33,11 @@ transform = Transform( 1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0
 operation = 2
 depth = 4.0
 
-[node name="Barrel" type="CSGBox" parent="."]
-transform = Transform( -0.25, 0, -2.18557e-08, 0, 0.25, 0, 2.18557e-08, 0, -0.25, -3.93402e-08, 0.1, -2 )
+[node name="Barrel" type="CSGBox" parent="Stock"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.54747e-13, 0.4, 3.6 )
 width = 0.2
 height = 0.4
 depth = 10.0
+
+[node name="BulletRayCast" type="RayCast" parent="." groups=["hurtful"]]
+cast_to = Vector3( 0, 0, -1000 )

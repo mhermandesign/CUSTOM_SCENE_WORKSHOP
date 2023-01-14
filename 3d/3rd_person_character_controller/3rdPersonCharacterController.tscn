@@ -1,0 +1,104 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://3d/3rd_person_character_controller/camera_rig.gd" type="Script" id=1]
+[ext_resource path="res://3d/3rd_person_character_controller/trackball.gd" type="Script" id=2]
+
+[sub_resource type="PhysicsMaterial" id=9]
+friction = 0.5
+
+[sub_resource type="SphereShape" id=7]
+radius = 2.0
+
+[sub_resource type="SpatialMaterial" id=24]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="Curve" id=22]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -2.112, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=23]
+curve = SubResource( 22 )
+
+[sub_resource type="ParticlesMaterial" id=11]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3( 0, -1, 0 )
+gravity = Vector3( 0, 10, 0 )
+initial_velocity = 10.0
+initial_velocity_random = 1.0
+linear_accel = 7.92
+radial_accel = -15.0
+tangential_accel = 15.0
+damping = 10.0
+scale = 2.0
+scale_random = 1.0
+scale_curve = SubResource( 23 )
+color = Color( 1, 0.913725, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=26]
+flags_transparent = true
+albedo_color = Color( 1, 1, 1, 0.0509804 )
+
+[sub_resource type="SphereMesh" id=25]
+material = SubResource( 26 )
+
+[node name="3rdPersonCharacterController" type="Spatial"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Trackball" type="RigidBody" parent="."]
+mass = 20.0
+physics_material_override = SubResource( 9 )
+gravity_scale = 9.0
+continuous_cd = true
+linear_damp = 1.0
+angular_damp = 10.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+CameraRig = NodePath("../CameraRig")
+
+[node name="CollisionShape" type="CollisionShape" parent="Trackball"]
+shape = SubResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CSGSphere" type="CSGSphere" parent="Trackball"]
+radius = 2.0
+material = SubResource( 24 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="DustParticles" type="Particles" parent="Trackball"]
+amount = 256
+lifetime = 2.0
+speed_scale = 0.5
+randomness = 1.0
+visibility_aabb = AABB( -8.94132, -21.0544, -11.5035, 18.5158, 32.5097, 20.6242 )
+local_coords = false
+draw_order = 2
+process_material = SubResource( 11 )
+draw_pass_1 = SubResource( 25 )
+
+[node name="OmniLight" type="OmniLight" parent="Trackball"]
+light_color = Color( 0.623529, 0.435294, 1, 1 )
+omni_range = 100.333
+omni_attenuation = 1.07178
+
+[node name="CameraRig" type="Spatial" parent="."]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+FollowTarget = NodePath("../Trackball")
+
+[node name="MainCamera" type="Camera" parent="CameraRig"]
+transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 14, 30 )
+current = true
+fov = 80.0
+near = 0.01
+far = 8000.0
